@@ -50,3 +50,23 @@ def test_production_accepts_valid_config():
         cors_allowed_origins="https://atlas.example",
     )
     assert s.app_env == "production"
+
+
+@pytest.mark.parametrize("blank", ["", "   "])
+def test_blank_database_url_is_treated_as_unset(blank):
+    assert build(database_url=blank).database_url is None
+
+
+def test_blank_database_url_env_var_yields_no_engine(monkeypatch):
+    """Regression: the shipped .env.example leaves DATABASE_URL blank."""
+    from app.config import get_settings
+    from app.db.session import get_engine
+
+    monkeypatch.setenv("DATABASE_URL", "")
+    get_settings.cache_clear()
+    get_engine.cache_clear()
+    try:
+        assert get_engine() is None
+    finally:
+        get_settings.cache_clear()
+        get_engine.cache_clear()
