@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif;
+}
+
+/* Keep MapLibre's attribution readable on top of the basemap. */
+.maplibregl-ctrl-attrib a {
+  color: inherit;
+}
