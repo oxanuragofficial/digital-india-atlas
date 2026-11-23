@@ -1,0 +1,17 @@
+{
+  "name": "digital-india-atlas",
+  "private": true,
+  "description": "Convenience scripts for the Digital India Atlas monorepo. Works the same in PowerShell, cmd and bash.",
+  "scripts": {
+    "web:install": "npm --prefix apps/web install",
+    "web:dev": "npm --prefix apps/web run dev",
+    "web:build": "npm --prefix apps/web run build",
+    "web:lint": "npm --prefix apps/web run lint",
+    "web:typecheck": "npm --prefix apps/web run typecheck",
+    "web:test": "npm --prefix apps/web run test",
+    "web:check": "npm --prefix apps/web run check",
+    "db:up": "docker compose up -d db",
+    "db:down": "docker compose down",
+    "db:logs": "docker compose logs -f db"
+  }
+}
