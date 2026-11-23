@@ -1,0 +1,40 @@
+# --- Secrets & local config (never commit) ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+
+# --- Node / Next.js ---
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+npm-debug.log*
+coverage/
+
+# --- Docker / data volumes ---
+pgdata/
+*.log
