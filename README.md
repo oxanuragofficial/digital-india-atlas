@@ -58,7 +58,7 @@ Goals, not yet implemented unless marked:
 apps/api/        FastAPI backend, GIS utilities and tests
 apps/web/        Next.js frontend
 infra/db/init/   SQL run on first database start
-docs/            setup, basemap and architecture notes
+docs/            setup, basemap, architecture and data-model notes
 docker-compose.yml, .env.example
 ```
 
@@ -77,7 +77,7 @@ In short:
 
 ## Testing
 
-- Backend: `python -m pytest` in `apps/api`. Tests marked as PostGIS integration tests run only when `TEST_DATABASE_URL` is set.
+- Backend: `python -m pytest` in `apps/api`. Database tests run only when `TEST_DATABASE_URL` is set (see [docs/ADMIN_DATA_MODEL.md](docs/ADMIN_DATA_MODEL.md)).
 - Frontend: `npm run check` in `apps/web` (lint, type-check, unit tests) and `npm run build`.
 
 ## Security
@@ -91,10 +91,11 @@ In short:
 | Phase | Focus | Status |
 |-------|-------|--------|
 | 0 | Repository bootstrap and documentation | Done |
-| 1 | Project scaffold and starter application (Milestone 1: engineering foundation) | In progress |
-| 2 | Core map experience and data pipeline | Planned |
-| 3 | Search, knowledge layer and public API | Planned |
-| 4 | Community contributions and wider coverage | Planned |
+| 1 | Project scaffold and starter application (Milestone 1: engineering foundation) | Implemented; Windows smoke test pending |
+| 2 | Administrative data foundation (Milestone 2: schema, provenance, safe import; no real data yet) | Implemented on a feature branch; not merged |
+| 3 | Core map experience and data pipeline | Planned |
+| 4 | Search, knowledge layer and public API | Planned |
+| 5 | Community contributions and wider coverage | Planned |
 
 ## Contributing
 

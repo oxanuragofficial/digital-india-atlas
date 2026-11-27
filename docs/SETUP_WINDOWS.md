@@ -115,6 +115,28 @@ Expected: `/health` returns `status: ok`; `/health/db` returns `status: ok`, `da
 
 Lint (optional): `python -m ruff check .`
 
+### Database migrations (Milestone 2)
+
+With the database running and `DATABASE_URL` set in `.env`, from `apps\api` with the virtual environment active:
+
+```powershell
+python -m alembic upgrade head
+python -m app.admin_data status
+```
+
+This creates the tables only; it loads **no** administrative data. The import commands are described in [ADMIN_DATA_MODEL.md](ADMIN_DATA_MODEL.md).
+
+To run the database tests, point `TEST_DATABASE_URL` at the Docker database (its `atlas` user may create databases):
+
+```powershell
+$env:TEST_DATABASE_URL = "postgresql+psycopg://atlas:YOUR_PASSWORD@localhost:5432/atlas"
+python -m pytest
+```
+
+The tests create and drop their own temporary database. Without the variable, database tests are skipped.
+
+> The Milestone 2 commands and tests have been run on Linux only. They have **not** been verified on Windows yet; please report anything that fails.
+
 ## 6. Frontend (Next.js)
 
 In a **new** PowerShell window, from the repository root:
